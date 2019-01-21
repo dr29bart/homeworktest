@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class TestConfig {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TestConfig.class.getCanonicalName());
+    private static final Logger LOG = LoggerFactory.getLogger(TestConfig.class);
     private static final String DEFAULT_CONFIG_FILE_NAME = "config.properties";
     private final Properties properties = new Properties();
 

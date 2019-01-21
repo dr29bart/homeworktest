@@ -8,6 +8,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+/**
+ * Provides utility methods reading resource files.
+ */
 public class ResourcesHelper {
 
     private ResourcesHelper() {

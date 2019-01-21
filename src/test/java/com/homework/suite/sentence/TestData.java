@@ -6,12 +6,15 @@ import com.google.common.base.Splitter;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Test data wrapper class, contains input text and collection of expected duplicated words
+ */
 public class TestData {
 
     private String text;
     private Collection<String> duplicates;
 
-    public static TestData parse(String line) {
+    static TestData parse(String line) {
         List<String> split = Splitter.on("|").splitToList(line);
         TestData testData = new TestData();
         testData.text = split.get(0);

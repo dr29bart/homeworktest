@@ -19,6 +19,8 @@
         <slf4j.version>1.7.25</slf4j.version>
         <guava.version>27.0.1-jre</guava.version>
         <assertj.version>3.11.1</assertj.version>
+        <aspectj.version>1.9.2</aspectj.version>
+        <allure-testng.version>2.9.0</allure-testng.version>
     </properties>
 
     <dependencies>
@@ -69,6 +71,12 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -87,6 +95,29 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng/sentenceSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                        <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+                        <systemProperties>
+                            <property>
+                                <name>allure.results.directory</name>
+                                <value>${project.build.directory}/allure-results</value>
+                            </property>
+                        </systemProperties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>${allure-testng.version}</reportVersion>
                 </configuration>
             </plugin>
         </plugins>

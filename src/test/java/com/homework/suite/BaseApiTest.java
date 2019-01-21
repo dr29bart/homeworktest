@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseApiTest {
 
-
     @BeforeSuite
     public void setUpRestAssured() {
         RestAssured.baseURI = TestConfig.getBaseUrl();

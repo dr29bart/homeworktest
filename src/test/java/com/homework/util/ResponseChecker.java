@@ -5,6 +5,8 @@ import io.restassured.response.Response;
 
 import com.homework.TestException;
 
+import org.hamcrest.collection.IsIn;
+
 /**
  * Utility class for response validation
  */
@@ -18,15 +20,7 @@ public class ResponseChecker {
      *
      * @throws TestException with response body if response code is unexpected
      */
-    public static void assertStatusCode(Response response, int... expectedCodes) {
-        int statusCode = response.getStatusCode();
-        for (int code : expectedCodes) {
-            if (statusCode == code) {
-                return;
-            }
-        }
-        String errMsg = String.format("Response has unexpected status code [%s]. Actual body [%s],",
-                statusCode, response.asString());
-        throw new TestException(errMsg);
+    public static void assertStatusCode(Response response, Integer... expectedCodes) {
+        response.then().statusCode(IsIn.isOneOf(expectedCodes));
     }
 }

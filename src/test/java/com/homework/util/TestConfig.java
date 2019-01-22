@@ -30,6 +30,14 @@ public class TestConfig {
         } catch (IOException ioe) {
             throw new TestException("Failed to read test configuration file", ioe);
         }
+
+        // override params
+        for (Param parameter : Param.values()) {
+            String propertyValue = System.getProperty(parameter.getName());
+            if (propertyValue != null) {
+                properties.setProperty(parameter.getName(), propertyValue);
+            }
+        }
     }
 
     private static final class HolderInstance {

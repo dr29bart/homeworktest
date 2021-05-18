@@ -17,7 +17,7 @@
         <jackson.version>2.9.8</jackson.version>
         <log4j.version>2.10.0</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <guava.version>27.0.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <assertj.version>3.11.1</assertj.version>
         <aspectj.version>1.9.2</aspectj.version>
         <allure-testng.version>2.9.0</allure-testng.version>
